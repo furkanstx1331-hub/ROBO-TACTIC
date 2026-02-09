@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Maker Minds | Teknofest Robolig</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #8b0000, #c40000, #ffffff);
+            color: #fff;
+            line-height: 1.6;
+            animation: bgMove 10s ease infinite;
+        }
+
+        @keyframes bgMove {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        header {
+            padding: 70px 20px;
+            text-align: center;
+            animation: fadeDown 1.2s ease;
+        }
+
+        @keyframes fadeDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        header h1 {
+            font-size: 3rem;
+            color: #fff;
+            letter-spacing: 2px;
+        }
+
+        header p {
+            margin-top: 10px;
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        section {
+            padding: 50px 20px;
+            max-width: 1000px;
+            margin: auto;
+        }
+
+        .card {
+            background: rgba(0, 0, 0, 0.35);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+            animation: fadeUp 1.2s ease;
+        }
+
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h2 {
+            color: #ffffff;
+            margin-bottom: 20px;
+            text-align: center;
+            border-bottom: 2px solid #ffdddd;
+            padding-bottom: 10px;
+        }
+
+        ul {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 15px;
+        }
+
+        li {
+            background: rgba(255,255,255,0.1);
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        li:hover {
+            background: #ffffff;
+            color: #8b0000;
+            transform: scale(1.05);
+        }
+
+        footer {
+            text-align: center;
+            padding: 25px;
+            font-size: 0.9rem;
+            background: rgba(0,0,0,0.4);
+        }
+
+        footer span {
+            opacity: 0.8;
+            font-size: 0.85rem;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>MAKER MINDS</h1>
+    <p>Teknofest Robolig Yarışma Takımı</p>
+</header>
+
+<section>
+
+    <div class="card">
+        <h2>Takım Hakkında</h2>
+        <p>
+            Maker Minds, Teknofest Robolig yarışması kapsamında robotik,
+            yazılım ve mühendislik alanlarında yenilikçi ve verimli çözümler
+            geliştirmeyi amaçlayan bir takımdır. Takım ruhu ve disiplinli
+            çalışma temel prensiplerimizdir.
+        </p>
+    </div>
+
+    <div class="card">
+        <h2>Hedeflerimiz</h2>
+        <ul>
+            <li>Teknofest Robolig yarışmasında başarı elde etmek</li>
+            <li>Otonom ve akıllı robot sistemleri geliştirmek</li>
+            <li>Robotik ve yazılım alanında teknik yetkinliği artırmak</li>
+            <li>Yenilikçi ve sürdürülebilir çözümler üretmek</li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <h2>Vizyonumuz</h2>
+        <p>
+            Teknoloji üreten, araştıran ve geliştiren bireyler olarak
+            ülkemizi robotik ve yazılım alanında ileriye taşımak;
+            ulusal ve uluslararası projelerde aktif rol almaktır.
+        </p>
+    </div>
+
+    <div class="card">
+        <h2>Yarışmacılar</h2>
+        <ul>
+            <li>Furkan Kılıç</li>
+            <li>Kerem Tekerek</li>
+            <li>Musa Beçet</li>
+            <li>Muhittin Manas Bayrakçı</li>
+        </ul>
+    </div>
+
+</section>
+
+<footer>
+    © 2026 Maker Minds | Teknofest Robolig <br>
+    <span>Hazırlayan: Furkan Kılıç</span>
+</footer>
+
+</body>
+</html>
