@@ -3,10 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ROBO TACTIC | TEKNOFEST Yarışma Takımı</title>
+<title>ROBO TACTIC | Teknofest Team</title>
 
 <style>
-
 *{
     margin:0;
     padding:0;
@@ -15,359 +14,316 @@
 }
 
 body{
-    background:#050505;
+    background: radial-gradient(circle at center,#140000,#000000 70%);
     color:white;
     overflow-x:hidden;
+    scroll-behavior:smooth;
 }
 
-/* ================= LOADING ================= */
-
-#loader{
+/* NAVBAR */
+.navbar{
     position:fixed;
+    top:0;
     width:100%;
-    height:100vh;
-    background:radial-gradient(circle at center,#300000,#000);
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    flex-direction:column;
-    z-index:9999;
-    transition:1s;
+    padding:20px 8%;
+    backdrop-filter:blur(20px);
+    background:rgba(20,0,0,0.7);
+    border-bottom:1px solid rgba(255,0,0,0.3);
+    z-index:1000;
+    transition:.4s;
 }
 
-.loader-title{
-    font-size:60px;
-    color:red;
-    letter-spacing:6px;
-    text-shadow:0 0 25px red;
-    animation:pulse 1.5s infinite alternate;
+.navbar.scrolled{
+    padding:14px 8%;
+    background:rgba(20,0,0,0.95);
 }
 
-@keyframes pulse{
-    from{opacity:0.7;}
-    to{opacity:1;}
-}
-
-.progress-bar{
-    width:320px;
-    height:8px;
-    background:#111;
-    margin-top:40px;
-    border-radius:5px;
-    overflow:hidden;
-}
-
-.progress{
-    height:100%;
-    width:0%;
-    background:linear-gradient(90deg,red,#ff4d4d);
-}
-
-/* ================= NAV ================= */
-
-nav{
-    position:fixed;
-    width:100%;
-    padding:20px 80px;
+.nav-container{
     display:flex;
     justify-content:space-between;
     align-items:center;
-    background:rgba(0,0,0,0.7);
-    backdrop-filter:blur(10px);
-    z-index:1000;
 }
 
-nav h1{
-    color:red;
-    letter-spacing:3px;
+.logo{
+    font-size:24px;
+    font-weight:700;
+    color:#ff2e2e;
+    text-shadow:0 0 15px red;
 }
 
-nav ul{
-    display:flex;
+.nav-links{
     list-style:none;
-    gap:35px;
-}
-
-nav ul li a{
-    text-decoration:none;
-    color:white;
-    transition:0.3s;
-}
-
-nav ul li a:hover{
-    color:red;
-}
-
-/* ================= HERO ================= */
-
-.hero{
-    height:100vh;
     display:flex;
-    justify-content:center;
-    align-items:center;
-    flex-direction:column;
-    text-align:center;
-    background:radial-gradient(circle at center,#200000,#000);
-}
-
-.hero h2{
-    font-size:70px;
-    color:red;
-    text-shadow:0 0 30px red;
-}
-
-.hero p{
-    margin-top:25px;
-    max-width:700px;
-    font-size:20px;
-    line-height:1.6;
-    opacity:0.9;
-}
-
-/* ================= SECTIONS ================= */
-
-section{
-    padding:120px 10%;
-}
-
-section h2{
-    font-size:40px;
-    color:red;
-    margin-bottom:40px;
-}
-
-/* ================= ABOUT ================= */
-
-.about-text{
-    line-height:1.9;
-    font-size:18px;
-    max-width:900px;
-}
-
-/* ================= VISION MISSION ================= */
-
-.vm-container{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(400px,1fr));
-    gap:40px;
-}
-
-.vm-box{
-    background:rgba(255,0,0,0.05);
-    padding:40px;
-    border:1px solid rgba(255,0,0,0.3);
-    border-radius:15px;
-    transition:0.4s;
-}
-
-.vm-box:hover{
-    transform:translateY(-10px);
-    box-shadow:0 0 25px rgba(255,0,0,0.4);
-}
-
-.vm-box h3{
-    margin-bottom:20px;
-    color:red;
-}
-
-/* ================= TEAM ================= */
-
-.team-container{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
     gap:30px;
 }
 
-.card{
-    background:rgba(255,0,0,0.05);
-    padding:35px;
-    border-radius:15px;
-    border:1px solid rgba(255,0,0,0.3);
+.nav-links li{
+    cursor:pointer;
+    position:relative;
+}
+
+.nav-links li::after{
+    content:"";
+    position:absolute;
+    bottom:-6px;
+    left:0;
+    width:0%;
+    height:2px;
+    background:#ff2e2e;
+    transition:.4s;
+}
+
+.nav-links li:hover::after{
+    width:100%;
+}
+
+/* HERO */
+.hero{
+    margin-top:120px;
+    height:90vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
     text-align:center;
-    transition:0.4s;
 }
 
-.card:hover{
-    transform:translateY(-10px);
-    box-shadow:0 0 25px rgba(255,0,0,0.5);
+.hero h1{
+    font-size:4rem;
+    color:#ff2e2e;
+    text-shadow:0 0 40px red;
 }
 
-.card h3{
-    margin-bottom:10px;
-    color:red;
+.hero p{
+    margin-top:20px;
+    max-width:700px;
+    opacity:.9;
 }
 
-/* ================= COUNTDOWN ================= */
+/* SECTION */
+section{
+    padding:100px 10%;
+}
 
-#countdown{
-    font-size:30px;
+.card{
+    background:rgba(40,0,0,0.85);
+    padding:40px;
+    border-radius:20px;
+    margin-bottom:50px;
+    border:1px solid rgba(255,0,0,0.3);
+    box-shadow:0 0 40px rgba(255,0,0,0.2);
+    transform:translateY(80px);
+    opacity:0;
+    transition:.8s;
+}
+
+.card.show{
+    transform:translateY(0);
+    opacity:1;
+}
+
+.card h2{
+    color:#ff2e2e;
+    margin-bottom:20px;
+}
+
+/* TEAM */
+.team{
+    display:flex;
+    flex-wrap:wrap;
+    gap:30px;
+}
+
+.member{
+    flex:1;
+    min-width:220px;
+    background:#1a0000;
+    padding:25px;
+    border-radius:15px;
+    text-align:center;
+    transition:.4s;
+}
+
+.member:hover{
+    transform:scale(1.05);
+    box-shadow:0 0 25px red;
+}
+
+/* BUTTONS */
+.btn{
+    margin-top:20px;
+    padding:12px 25px;
+    background:#ff2e2e;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
     font-weight:bold;
+    transition:.3s;
 }
 
-/* ================= FOOTER ================= */
+.btn:hover{
+    background:white;
+    color:black;
+}
 
+.hidden{
+    display:none;
+    margin-top:20px;
+    line-height:1.6;
+}
+
+/* FOOTER */
 footer{
     text-align:center;
     padding:40px;
-    background:#000;
-    border-top:1px solid red;
+    background:#0d0000;
 }
 
+/* PARTICLES */
+canvas{
+    position:fixed;
+    top:0;
+    left:0;
+    z-index:-1;
+}
 </style>
 </head>
+
 <body>
 
-<!-- LOADER -->
-<div id="loader">
-    <div class="loader-title">ROBO TACTIC</div>
-    <div class="progress-bar">
-        <div class="progress"></div>
-    </div>
-</div>
+<canvas id="particles"></canvas>
 
-<!-- NAV -->
-<nav>
-    <h1>ROBO TACTIC</h1>
-    <ul>
-        <li><a href="#about">Takım Hakkında</a></li>
-        <li><a href="#vision">Vizyon & Misyon</a></li>
-        <li><a href="#team">Takım</a></li>
-    </ul>
+<nav class="navbar">
+<div class="nav-container">
+<div class="logo">ROBO TACTIC</div>
+<ul class="nav-links">
+<li onclick="go('about')">Takım</li>
+<li onclick="go('visionSection')">Vizyon</li>
+<li onclick="go('missionSection')">Misyon</li>
+</ul>
+</div>
 </nav>
 
-<!-- HERO -->
 <div class="hero">
-    <h2>ROBO TACTIC</h2>
-    <p>
-    TEKNOFEST yarışmalarına stratejik mühendislik yaklaşımıyla hazırlanan,
-    yüksek performanslı robotik sistemler geliştiren ileri seviye teknoloji takımı.
-    </p>
+<h1>ROBO TACTIC</h1>
+<p>Teknofest yarışmalarında inovatif robotik çözümler geliştiren,
+yüksek teknoloji odaklı mühendislik takımı.</p>
 </div>
 
-<!-- COUNTDOWN -->
 <section>
-    <h2>TEKNOFEST Geri Sayım</h2>
-    <div id="countdown"></div>
-</section>
 
-<!-- ABOUT -->
-<section id="about">
-    <h2>Takım Hakkında</h2>
-    <div class="about-text">
-        ROBO TACTIC, robotik sistemler, otonom teknolojiler ve yapay zeka alanında
-        yenilikçi çözümler geliştirmek amacıyla kurulmuş bir TEKNOFEST yarışma takımıdır.
-        Takımımız; yazılım, mekanik tasarım ve elektronik alanlarında uzmanlaşarak
-        disiplinler arası bir çalışma modeli benimsemektedir.
+<div class="card" id="about">
+<h2>Takım Üyeleri</h2>
+<div class="team">
+<div class="member">
+<h3>Muhammet Furkan Kılıç</h3>
+<p>Yazılım & Sistem Geliştirme</p>
+</div>
+<div class="member">
+<h3>Muhittin Manas Bayrakçı</h3>
+<p>Mekanik & Tasarım</p>
+</div>
+<div class="member">
+<h3>Musa Beçet</h3>
+<p>Elektronik & Devre Sistemleri</p>
+</div>
+<div class="member">
+<h3>Kerem Tekerek</h3>
+<p>Strateji & Proje Yönetimi</p>
+</div>
+</div>
+</div>
 
-        Amacımız yalnızca bir yarışmaya katılmak değil; mühendislik kültürünü
-        benimseyerek problem çözme, stratejik düşünme ve ileri teknoloji üretme
-        konusunda kalıcı başarı elde etmektir. Her bir tasarımımız dayanıklılık,
-        verimlilik ve yüksek performans prensiplerine göre geliştirilmektedir.
-    </div>
-</section>
+<div class="card" id="visionSection">
+<h2>Vizyon</h2>
+<button class="btn" onclick="toggle('visionText')">Vizyonu Göster</button>
+<div id="visionText" class="hidden">
+ROBO TACTIC olarak hedefimiz; Türkiye’yi robotik ve otonom sistemler alanında
+uluslararası arenada temsil eden, yenilikçi ve sürdürülebilir projeler üreten
+lider bir teknoloji takımı olmaktır. Teknofest platformunda geliştirdiğimiz
+projelerle geleceğin mühendislik çözümlerine yön vermeyi amaçlıyoruz.
+</div>
+</div>
 
-<!-- VISION MISSION -->
-<section id="vision">
-    <h2>Vizyon & Misyon</h2>
+<div class="card" id="missionSection">
+<h2>Misyon</h2>
+<button class="btn" onclick="toggle('missionText')">Misyonu Göster</button>
+<div id="missionText" class="hidden">
+Misyonumuz; ileri seviye yazılım, mekanik ve elektronik sistemleri
+bir araya getirerek yüksek performanslı robotik projeler geliştirmek,
+genç mühendis adaylarına ilham vermek ve teknoloji üretiminde aktif rol
+almaktır. Takım çalışması, disiplin ve inovasyon temel değerlerimizdir.
+</div>
+</div>
 
-    <div class="vm-container">
-
-        <div class="vm-box">
-            <h3>Vizyonumuz</h3>
-            Türkiye'nin robotik ve otonom sistemler alanında öncü genç takımlarından biri
-            olarak ulusal ve uluslararası platformlarda başarı elde etmek ve
-            teknolojik gelişime katkı sağlamak.
-        </div>
-
-        <div class="vm-box">
-            <h3>Misyonumuz</h3>
-            Stratejik mühendislik yaklaşımıyla yüksek performanslı, yenilikçi ve
-            sürdürülebilir robotik çözümler geliştirerek TEKNOFEST'te üst düzey
-            başarı elde etmek ve genç mühendis adaylarına ilham olmak.
-        </div>
-
-    </div>
-</section>
-
-<!-- TEAM -->
-<section id="team">
-    <h2>Takım Üyeleri</h2>
-
-    <div class="team-container">
-
-        <div class="card">
-            <h3>Muhammet Furkan Kılıç</h3>
-            <p>Takım Kaptanı</p>
-        </div>
-
-        <div class="card">
-            <h3>Muhittin Manas Bayrakçı</h3>
-            <p>Yazılım Geliştirme</p>
-        </div>
-
-        <div class="card">
-            <h3>Musa Beçet</h3>
-            <p>Mekanik Tasarım</p>
-        </div>
-
-        <div class="card">
-            <h3>Kerem Tekerek</h3>
-            <p>Elektronik Sistemler</p>
-        </div>
-
-    </div>
 </section>
 
 <footer>
-    © 2026 ROBO TACTIC | TEKNOFEST Yarışma Takımı
+© 2026 ROBO TACTIC | Teknofest Team
 </footer>
 
 <script>
-
-/* LOADING ANIMATION */
-
-let progress = 0;
-let bar = document.querySelector(".progress");
-
-let interval = setInterval(()=>{
-    progress += 5;
-    bar.style.width = progress + "%";
-    if(progress >= 100){
-        clearInterval(interval);
-        document.getElementById("loader").style.opacity="0";
-        setTimeout(()=>{
-            document.getElementById("loader").style.display="none";
-        },1000);
-    }
-},80);
-
-/* COUNTDOWN */
-
-var countDownDate = new Date("Aug 15, 2026 09:00:00").getTime();
-
-var x = setInterval(function() {
-
-var now = new Date().getTime();
-var distance = countDownDate - now;
-
-var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-document.getElementById("countdown").innerHTML =
-days + " Gün " + hours + " Saat "
-+ minutes + " Dakika " + seconds + " Saniye ";
-
-if (distance < 0) {
-clearInterval(x);
-document.getElementById("countdown").innerHTML = "TEKNOFEST BAŞLADI!";
+function go(id){
+document.getElementById(id).scrollIntoView({behavior:"smooth"});
 }
 
-}, 1000);
+function toggle(id){
+const el=document.getElementById(id);
+el.classList.toggle("hidden");
+}
 
+/* Scroll animation */
+const cards=document.querySelectorAll('.card');
+window.addEventListener('scroll',()=>{
+cards.forEach(card=>{
+if(card.getBoundingClientRect().top<window.innerHeight-100){
+card.classList.add('show');
+}
+});
+});
+
+/* Particles */
+const canvas=document.getElementById("particles");
+const ctx=canvas.getContext("2d");
+canvas.width=window.innerWidth;
+canvas.height=window.innerHeight;
+
+let particles=[];
+for(let i=0;i<100;i++){
+particles.push({
+x:Math.random()*canvas.width,
+y:Math.random()*canvas.height,
+r:Math.random()*2,
+d:Math.random()*1
+});
+}
+
+function draw(){
+ctx.clearRect(0,0,canvas.width,canvas.height);
+ctx.fillStyle="rgba(255,0,0,0.5)";
+particles.forEach(p=>{
+ctx.beginPath();
+ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+ctx.fill();
+});
+update();
+}
+
+function update(){
+particles.forEach(p=>{
+p.y+=p.d;
+if(p.y>canvas.height){
+p.y=0;
+p.x=Math.random()*canvas.width;
+}
+});
+}
+
+setInterval(draw,33);
 </script>
 
 </body>
 </html>
+
+
 
