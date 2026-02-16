@@ -1,4 +1,4 @@
-<<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="tr">
 <head>
 <meta charset="UTF-8">
@@ -19,7 +19,7 @@ body{
     overflow-x:hidden;
 }
 
-/* LOADING SCREEN */
+    
 
 #loader{
     position:fixed;
@@ -46,7 +46,7 @@ body{
     100%{transform:rotate(360deg);}
 }
 
-/* NAVBAR */
+
 
 nav{
     position:fixed;
@@ -80,7 +80,6 @@ nav ul li a:hover{
     color:red;
 }
 
-/* HERO */
 
 .hero{
     height:100vh;
@@ -103,7 +102,7 @@ nav ul li a:hover{
     max-width:600px;
 }
 
-/* SECTIONS */
+
 
 section{
     padding:100px 10%;
@@ -115,14 +114,14 @@ section h2{
     font-size:35px;
 }
 
-/* COUNTDOWN */
+
 
 #countdown{
     font-size:30px;
     font-weight:bold;
 }
 
-/* BUTTON */
+
 
 button{
     background:red;
@@ -138,7 +137,7 @@ button:hover{
     background:darkred;
 }
 
-/* HIDDEN TEXT */
+
 
 .hidden{
     display:none;
@@ -146,7 +145,7 @@ button:hover{
     line-height:1.6;
 }
 
-/* TEAM CARDS */
+
 
 .team-container{
     display:grid;
@@ -180,13 +179,13 @@ footer{
 
 <body>
 
-<!-- LOADING -->
+
 <div id="loader">
     <div class="loader-circle"></div>
     <p style="margin-top:20px;">ROBO TACTIC Yükleniyor...</p>
 </div>
 
-<!-- NAV -->
+
 <nav>
     <h1>ROBO TACTIC</h1>
     <ul>
@@ -196,19 +195,19 @@ footer{
     </ul>
 </nav>
 
-<!-- HERO -->
+
 <div class="hero">
     <h2>ROBO TACTIC</h2>
     <p>TEKNOFEST yarışmaları için geliştirilmiş ileri seviye robotik çözümler üreten mühendislik takımı.</p>
 </div>
 
-<!-- COUNTDOWN -->
+
 <section>
     <h2>TEKNOFEST Geri Sayım</h2>
     <div id="countdown"></div>
 </section>
 
-<!-- ABOUT -->
+
 <section id="about">
     <h2>Takım Hakkında</h2>
     <p>
@@ -218,7 +217,7 @@ footer{
     </p>
 </section>
 
-<!-- VISION & MISSION -->
+
 <section id="vision">
     <h2>Vizyon & Misyon</h2>
 
@@ -233,7 +232,7 @@ footer{
     </div>
 </section>
 
-<!-- TEAM -->
+    
 <section id="team">
     <h2>Takım Üyeleri</h2>
 
@@ -266,12 +265,12 @@ footer{
 
 <script>
 
-/* LOADING */
+    
 window.addEventListener("load",function(){
     document.getElementById("loader").style.display="none";
 });
 
-/* COUNTDOWN */
+
 
 var countDownDate = new Date("Aug 15, 2026 09:00:00").getTime();
 
@@ -296,7 +295,7 @@ document.getElementById("countdown").innerHTML = "TEKNOFEST BAŞLADI!";
 
 }, 1000);
 
-/* TOGGLE */
+
 
 function toggleVision(){
     var x = document.getElementById("visionText");
