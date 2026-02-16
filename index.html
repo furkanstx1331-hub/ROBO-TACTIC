@@ -5,170 +5,200 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ROBO TACTIC | Teknofest Takımı</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
-
-    
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:'Orbitron', sans-serif;
-}
+*{margin:0;padding:0;box-sizing:border-box}
 
 body{
-    background: radial-gradient(circle at center,#020617,#000814 70%);
+    font-family:'Poppins',sans-serif;
+    background:#0a0f1c;
     color:white;
     overflow-x:hidden;
 }
 
-
+/* ===== LOADING ===== */
 #loader{
     position:fixed;
     width:100%;
     height:100%;
     background:#000814;
     display:flex;
+    flex-direction:column;
     justify-content:center;
     align-items:center;
-    flex-direction:column;
     z-index:9999;
 }
 
-.loader-circle{
-    width:80px;
-    height:80px;
-    border:8px solid #0ff;
-    border-top:8px solid transparent;
-    border-radius:50%;
-    animation:spin 1s linear infinite;
-    margin-bottom:20px;
+.progress{
+    width:250px;
+    height:6px;
+    background:#111;
+    border-radius:20px;
+    overflow:hidden;
+    margin-top:20px;
 }
 
-@keyframes spin{
-    100%{ transform:rotate(360deg); }
+.progress span{
+    display:block;
+    height:100%;
+    width:0%;
+    background:linear-gradient(90deg,#00f5ff,#00ff88);
+    animation:load 2.5s linear forwards;
 }
 
-.fade-out{
-    opacity:0;
-    visibility:hidden;
-    transition:1s;
+@keyframes load{
+    100%{width:100%}
 }
 
+.fade-out{opacity:0;visibility:hidden;transition:1s}
 
+/* ===== BACKGROUND PARTICLES ===== */
+canvas{
+    position:fixed;
+    top:0;
+    left:0;
+    z-index:-1;
+}
+
+/* ===== HEADER ===== */
 header{
     text-align:center;
-    padding:80px 20px;
+    padding:100px 20px 60px;
 }
 
 header h1{
-    font-size:60px;
-    font-weight:900;
+    font-family:'Orbitron',sans-serif;
+    font-size:70px;
     background:linear-gradient(90deg,#00f5ff,#00ff88);
     -webkit-background-clip:text;
     -webkit-text-fill-color:transparent;
 }
 
 header p{
-    margin-top:20px;
-    font-size:18px;
+    margin-top:15px;
     opacity:0.8;
 }
 
-    
+/* ===== NAV ===== */
 nav{
     display:flex;
     justify-content:center;
     gap:20px;
-    margin-bottom:40px;
+    flex-wrap:wrap;
+    margin-bottom:50px;
 }
 
 nav button{
-    padding:12px 25px;
-    background:linear-gradient(45deg,#00f5ff,#00ff88);
+    padding:12px 30px;
     border:none;
     border-radius:30px;
+    background:rgba(255,255,255,0.1);
+    color:white;
+    backdrop-filter:blur(10px);
     cursor:pointer;
-    font-weight:bold;
     transition:0.3s;
 }
 
 nav button:hover{
-    transform:scale(1.1);
+    background:linear-gradient(45deg,#00f5ff,#00ff88);
+    transform:translateY(-3px);
 }
 
-    
+/* ===== SECTION ===== */
 .section{
     display:none;
-    padding:40px 20px;
-    max-width:1000px;
+    max-width:1100px;
     margin:auto;
-    animation:fadeIn 1s ease;
+    padding:40px 20px;
+    animation:fadeIn 0.8s ease;
 }
+
+.section.active{display:block}
 
 @keyframes fadeIn{
-    from{opacity:0; transform:translateY(30px);}
-    to{opacity:1; transform:translateY(0);}
+    from{opacity:0;transform:translateY(30px)}
+    to{opacity:1;transform:translateY(0)}
 }
 
-.section.active{
-    display:block;
-}
-
-
+/* ===== GLASS CARD ===== */
 .card{
     background:rgba(255,255,255,0.05);
-    padding:30px;
+    backdrop-filter:blur(15px);
     border-radius:20px;
-    margin-bottom:30px;
-    backdrop-filter:blur(10px);
-    box-shadow:0 0 20px rgba(0,255,255,0.2);
+    padding:40px;
+    margin-bottom:40px;
+    box-shadow:0 0 40px rgba(0,255,255,0.15);
 }
 
 .card h2{
+    font-family:'Orbitron';
     margin-bottom:20px;
     color:#00f5ff;
 }
 
-
-.team-list{
+/* ===== TEAM ===== */
+.team{
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-    gap:20px;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:25px;
 }
 
 .member{
-    background:rgba(0,255,255,0.1);
-    padding:20px;
+    background:rgba(0,255,255,0.08);
+    padding:25px;
     border-radius:15px;
     text-align:center;
     transition:0.3s;
 }
 
 .member:hover{
-    transform:scale(1.05);
+    transform:translateY(-5px);
     background:rgba(0,255,255,0.2);
 }
 
+/* ===== ACCORDION ===== */
+.accordion button{
+    width:100%;
+    padding:15px;
+    border:none;
+    border-radius:10px;
+    background:rgba(255,255,255,0.1);
+    color:white;
+    cursor:pointer;
+    text-align:left;
+    font-weight:bold;
+}
 
+.accordion-content{
+    max-height:0;
+    overflow:hidden;
+    transition:0.5s;
+    margin-top:10px;
+}
+
+.accordion-content p{
+    padding:15px;
+}
+
+/* ===== FOOTER ===== */
 footer{
     text-align:center;
     padding:30px;
-    margin-top:50px;
     opacity:0.6;
 }
-
 </style>
 </head>
 
 <body>
 
-
+<!-- LOADING -->
 <div id="loader">
-    <div class="loader-circle"></div>
-    <h2>ROBO TACTIC Yükleniyor...</h2>
+    <h2 style="font-family:Orbitron;">ROBO TACTIC</h2>
+    <div class="progress"><span></span></div>
 </div>
+
+<canvas id="bg"></canvas>
 
 <header>
     <h1>ROBO TACTIC</h1>
@@ -176,51 +206,45 @@ footer{
 </header>
 
 <nav>
-    <button onclick="showSection('hakkinda')">Takım Hakkında</button>
-    <button onclick="showSection('vizyon')">Vizyon</button>
-    <button onclick="showSection('misyon')">Misyon</button>
-    <button onclick="showSection('uyeler')">Takım Üyeleri</button>
+    <button onclick="show('about')">Takım Hakkında</button>
+    <button onclick="show('vision')">Vizyon & Misyon</button>
+    <button onclick="show('team')">Takım</button>
 </nav>
 
-
-<div id="hakkinda" class="section active">
+<!-- ABOUT -->
+<div id="about" class="section active">
     <div class="card">
         <h2>Takım Hakkında</h2>
         <p>
-        ROBO TACTIC, Teknofest yarışmaları için kurulmuş yenilikçi bir robotik takımıdır.
-        Takımımız, otonom sistemler, yapay zeka ve mekanik tasarım alanlarında projeler üretmektedir.
-        Hedefimiz sadece yarışmak değil; teknoloji üretmek ve ülkemize katkı sağlamaktır.
+        ROBO TACTIC, Teknofest yarışmaları için kurulmuş ileri düzey robotik geliştirme ekibidir.
+        Otonom sistemler, yapay zeka ve mekanik tasarım alanlarında projeler üretir.
+        Hedefimiz sadece yarışmak değil, teknoloji üretmek ve ülkemizi en üst seviyede temsil etmektir.
         </p>
     </div>
 </div>
 
+<!-- VISION -->
+<div id="vision" class="section">
+    <div class="card accordion">
+        <button onclick="toggleAcc(this)">Vizyon</button>
+        <div class="accordion-content">
+            <p>Robotik ve yapay zeka alanında uluslararası başarılar elde eden, yenilikçi çözümler üreten bir ekip olmak.</p>
+        </div>
+    </div>
 
-<div id="vizyon" class="section">
-    <div class="card">
-        <h2>Vizyon</h2>
-        <p>
-        Robotik ve yapay zeka alanında ulusal ve uluslararası başarılar elde eden,
-        yenilikçi çözümler üreten ve teknolojiye yön veren bir ekip olmak.
-        </p>
+    <div class="card accordion">
+        <button onclick="toggleAcc(this)">Misyon</button>
+        <div class="accordion-content">
+            <p>Disiplinli çalışma ve mühendislik prensipleri ile özgün projeler geliştirerek Teknofest’te en üst başarıyı hedeflemek.</p>
+        </div>
     </div>
 </div>
 
-
-<div id="misyon" class="section">
-    <div class="card">
-        <h2>Misyon</h2>
-        <p>
-        Disiplinli çalışma, mühendislik prensipleri ve takım ruhu ile
-        özgün projeler geliştirerek Teknofest platformunda en üst seviyede temsil sağlamak.
-        </p>
-    </div>
-</div>
-
-
-<div id="uyeler" class="section">
+<!-- TEAM -->
+<div id="team" class="section">
     <div class="card">
         <h2>Takım Üyeleri</h2>
-        <div class="team-list">
+        <div class="team">
             <div class="member">Muhammet Furkan Kılıç</div>
             <div class="member">Muhittin Manas Bayrakçı</div>
             <div class="member">Musa Beçet</div>
@@ -230,29 +254,59 @@ footer{
 </div>
 
 <footer>
-    © 2026 ROBO TACTIC | Tüm Hakları Saklıdır
+© 2026 ROBO TACTIC | Tüm Hakları Saklıdır
 </footer>
 
 <script>
 
+/* LOADING */
+window.addEventListener("load",()=>{
+    setTimeout(()=>{document.getElementById("loader").classList.add("fade-out")},2500)
+})
 
-window.addEventListener("load", function(){
-    setTimeout(function(){
-        document.getElementById("loader").classList.add("fade-out");
-    },1500);
-});
-
-
-function showSection(id){
-    let sections=document.querySelectorAll(".section");
-    sections.forEach(section=>{
-        section.classList.remove("active");
-    });
-    document.getElementById(id).classList.add("active");
+/* SECTION */
+function show(id){
+    document.querySelectorAll(".section").forEach(s=>s.classList.remove("active"))
+    document.getElementById(id).classList.add("active")
 }
 
-</script>
+/* ACCORDION */
+function toggleAcc(btn){
+    let content=btn.nextElementSibling
+    content.style.maxHeight?content.style.maxHeight=null:content.style.maxHeight=content.scrollHeight+"px"
+}
 
+/* PARTICLE BACKGROUND */
+const canvas=document.getElementById("bg")
+const ctx=canvas.getContext("2d")
+canvas.width=window.innerWidth
+canvas.height=window.innerHeight
+
+let particles=[]
+for(let i=0;i<80;i++){
+    particles.push({
+        x:Math.random()*canvas.width,
+        y:Math.random()*canvas.height,
+        r:Math.random()*2,
+        d:Math.random()*1
+    })
+}
+
+function draw(){
+    ctx.clearRect(0,0,canvas.width,canvas.height)
+    ctx.fillStyle="rgba(0,255,255,0.6)"
+    particles.forEach(p=>{
+        ctx.beginPath()
+        ctx.arc(p.x,p.y,p.r,0,Math.PI*2)
+        ctx.fill()
+        p.y+=p.d
+        if(p.y>canvas.height)p.y=0
+    })
+    requestAnimationFrame(draw)
+}
+draw()
+
+</script>
 </body>
 </html>
 
