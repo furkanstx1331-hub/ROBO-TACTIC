@@ -9,7 +9,7 @@
 
 <style>
 
-/* GENEL */
+    
 *{
     margin:0;
     padding:0;
@@ -23,7 +23,7 @@ body{
     overflow-x:hidden;
 }
 
-/* LOADING EKRANI */
+
 #loader{
     position:fixed;
     width:100%;
@@ -56,7 +56,7 @@ body{
     transition:1s;
 }
 
-/* HEADER */
+
 header{
     text-align:center;
     padding:80px 20px;
@@ -76,7 +76,7 @@ header p{
     opacity:0.8;
 }
 
-/* NAV */
+    
 nav{
     display:flex;
     justify-content:center;
@@ -98,7 +98,7 @@ nav button:hover{
     transform:scale(1.1);
 }
 
-/* SECTION */
+    
 .section{
     display:none;
     padding:40px 20px;
@@ -116,7 +116,7 @@ nav button:hover{
     display:block;
 }
 
-/* KARTLAR */
+
 .card{
     background:rgba(255,255,255,0.05);
     padding:30px;
@@ -131,7 +131,7 @@ nav button:hover{
     color:#00f5ff;
 }
 
-/* ÜYE LİSTESİ */
+
 .team-list{
     display:grid;
     grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
@@ -151,7 +151,7 @@ nav button:hover{
     background:rgba(0,255,255,0.2);
 }
 
-/* FOOTER */
+
 footer{
     text-align:center;
     padding:30px;
@@ -164,7 +164,7 @@ footer{
 
 <body>
 
-<!-- LOADING -->
+
 <div id="loader">
     <div class="loader-circle"></div>
     <h2>ROBO TACTIC Yükleniyor...</h2>
@@ -182,7 +182,7 @@ footer{
     <button onclick="showSection('uyeler')">Takım Üyeleri</button>
 </nav>
 
-<!-- TAKIM HAKKINDA -->
+
 <div id="hakkinda" class="section active">
     <div class="card">
         <h2>Takım Hakkında</h2>
@@ -194,7 +194,7 @@ footer{
     </div>
 </div>
 
-<!-- VİZYON -->
+
 <div id="vizyon" class="section">
     <div class="card">
         <h2>Vizyon</h2>
@@ -205,7 +205,7 @@ footer{
     </div>
 </div>
 
-<!-- MİSYON -->
+
 <div id="misyon" class="section">
     <div class="card">
         <h2>Misyon</h2>
@@ -216,7 +216,7 @@ footer{
     </div>
 </div>
 
-<!-- ÜYELER -->
+
 <div id="uyeler" class="section">
     <div class="card">
         <h2>Takım Üyeleri</h2>
@@ -235,14 +235,14 @@ footer{
 
 <script>
 
-/* LOADING KAPATMA */
+
 window.addEventListener("load", function(){
     setTimeout(function(){
         document.getElementById("loader").classList.add("fade-out");
     },1500);
 });
 
-/* BÖLÜM GÖSTERME */
+
 function showSection(id){
     let sections=document.querySelectorAll(".section");
     sections.forEach(section=>{
@@ -255,6 +255,7 @@ function showSection(id){
 
 </body>
 </html>
+
 
 
 
